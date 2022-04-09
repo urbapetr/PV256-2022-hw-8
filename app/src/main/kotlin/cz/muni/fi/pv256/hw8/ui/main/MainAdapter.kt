@@ -33,7 +33,7 @@ class MainAdapter(private val empty: ViewSwitcher, private val onClick: (Charact
         fun bind(character: Character) {
             img.load(character.image)
             text.text = character.name
-            //root view of the viewHolder
+            // root view of the viewHolder
             itemView.setOnClickListener { onClick(character) }
         }
     }
@@ -54,5 +54,4 @@ class MainAdapter(private val empty: ViewSwitcher, private val onClick: (Charact
     }
 
     override fun getItemCount(): Int = items.size
-
 }
