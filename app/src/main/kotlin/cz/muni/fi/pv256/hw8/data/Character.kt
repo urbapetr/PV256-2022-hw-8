@@ -7,11 +7,13 @@ import kotlinx.parcelize.Parcelize
 // https://rickandmortyapi.com/documentation/#character-schema
 @Parcelize
 @JsonClass(generateAdapter = true)
-data class Character(val id: Int,
-                     val name: String,
-                     val status: String = "unknown",
-                     val species: String = "unknown",
-                     val type: String = "unknown",
-                     val gender: String = "unknown",
-                     val image: String = "",
-                     val location: Location) : Parcelable
+data class Character(
+    val id: Int,
+    val name: String,
+    val status: String = "unknown",
+    val species: String = "unknown",
+    val type: String = "unknown",
+    val gender: String = "unknown",
+    val image: String = "",
+    val location: Location
+    ) : Parcelable
