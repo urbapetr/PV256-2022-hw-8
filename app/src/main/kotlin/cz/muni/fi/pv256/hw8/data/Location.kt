@@ -14,4 +14,4 @@ data class Location(
     val dimension: String = "unknown",
     val url: String = "unknown",
     val created: String = "unknown"
-    ) : Parcelable
+) : Parcelable

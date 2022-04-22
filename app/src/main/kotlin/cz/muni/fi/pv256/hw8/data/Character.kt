@@ -16,4 +16,4 @@ data class Character(
     val gender: String = "unknown",
     val image: String = "",
     val location: Location
-    ) : Parcelable
+) : Parcelable
