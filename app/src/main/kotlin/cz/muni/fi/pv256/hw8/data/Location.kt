@@ -7,8 +7,8 @@ import kotlinx.parcelize.Parcelize
 // TODO implement missing fields and annotations
     // https://rickandmortyapi.com/documentation/#location-schema
 data class Location(val id: Int,
-                    val name: String = "",
-                    val type: String = "",
-                    val dimension: String = "",
-                    val url: String = "",
-                    val created: String = "") : Parcelable
+                    val name: String,
+                    val type: String = "unknown",
+                    val dimension: String = "unknown",
+                    val url: String,
+                    val created: String) : Parcelable
