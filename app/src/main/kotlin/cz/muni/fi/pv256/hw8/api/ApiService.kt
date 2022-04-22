@@ -5,17 +5,14 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
     // Use: https://rickandmortyapi.com/documentation/#get-all-characters
     // Implement also "page" query parameter, even though it's not really used within the app
-    @GET("character")
-    suspend fun getAllCharacters(): CharacterList
 
-    @GET("character/?page={page}")
-    suspend fun getPage(@Path("page") page: Int): CharacterList
+    @GET("character")
+    suspend fun getAllCharacters(@Query("page") page: Int): CharacterList
 
     companion object {
 

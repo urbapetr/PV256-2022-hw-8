@@ -18,8 +18,7 @@ class MainViewModel : ViewModel() {
 
     fun fetchCharacters(page: Int) {
         viewModelScope.launch() {
-            val characterList: CharacterList = ApiService.instance.getAllCharacters()
-            //val myPage: CharacterList = ApiService.instance.getPage(page)
+            val characterList: CharacterList = ApiService.instance.getAllCharacters(page)
             _items.postValue(characterList.results)
         }
     }
