@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import cz.muni.fi.pv256.hw8.api.ApiService
 import cz.muni.fi.pv256.hw8.data.Character
 import cz.muni.fi.pv256.hw8.data.CharacterList
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -18,13 +17,10 @@ class MainViewModel : ViewModel() {
         get() = _items
 
     fun fetchCharacters(page: Int) {
-        // TODO _items.postValue with downloaded data with characters
-        // needs to be invoked as a coroutine
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch() {
             val characterList: CharacterList = ApiService.instance.getAllCharacters()
-            val myPage: Int = ApiService.instance.getPage(page)
-            _items.postValue(characterList.characterList)
+            //val myPage: CharacterList = ApiService.instance.getPage(page)
+            _items.postValue(characterList.results)
         }
     }
-
 }

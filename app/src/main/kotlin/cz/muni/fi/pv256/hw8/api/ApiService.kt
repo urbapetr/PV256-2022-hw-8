@@ -5,8 +5,8 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
     // Use: https://rickandmortyapi.com/documentation/#get-all-characters
@@ -15,7 +15,7 @@ interface ApiService {
     suspend fun getAllCharacters(): CharacterList
 
     @GET("character/?page={page}")
-    suspend fun getPage(@Path("page") page: Int): Int
+    suspend fun getPage(@Path("page") page: Int): CharacterList
 
     companion object {
 
@@ -29,6 +29,5 @@ interface ApiService {
             .client(OkHttpClient())
             .build()
             .create(ApiService::class.java)
-
     }
 }
