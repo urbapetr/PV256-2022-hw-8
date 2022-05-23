@@ -1,5 +1,7 @@
 package cz.muni.fi.pv256.hw8.data
 
-// TODO implement missing fields and annotations
+import com.squareup.moshi.JsonClass
+
 // https://rickandmortyapi.com/documentation/#get-all-characters
-data class CharacterList
+@JsonClass(generateAdapter = true)
+data class CharacterList(val results: List<Character> = mutableListOf())
